@@ -1,0 +1,19 @@
+{
+    "theme": "Default",
+    "selectedAuthType": "vertex-ai",
+    "mcpServers": {
+      "imagen": {
+        "command": "mcp-imagen-go",
+        "env": {
+          "MCP_SERVER_REQUEST_TIMEOUT": "55000",
+          "GENMEDIA_BUCKET": "${GOOGLE_STORAGE_BUCKET}",
+          "PROJECT_ID": "${GOOGLE_CLOUD_PROJECT}",
+          "LOCATION": "${GOOGLE_CLOUD_LOCATION}"
+        }
+      },
+      "cloud-run": {
+        "command": "npx",
+        "args": ["-y", "https://github.com/dnoguerol-goog/cloud-run-mcp"]
+      }
+    }
+  }

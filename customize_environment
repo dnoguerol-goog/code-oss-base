@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Install Gemini CLI
+sudo npm install -g @google/gemini-cli
+
+# Install Google ADK
+python -m venv ~/.venv
+source ~/.venv/bin/activate
+pip install google-adk
+
+echo "source ~/.venv/bin/activate" >> ~/.bashrc
