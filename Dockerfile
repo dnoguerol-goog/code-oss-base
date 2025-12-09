@@ -10,6 +10,7 @@ RUN mkdir -p /usr/local/go/bin
 COPY --from=0 /vertex-ai-creative-studio/experiments/mcp-genmedia/mcp-genmedia-go/mcp-imagen-go/mcp-imagen-go /usr/local/go/bin
 
 COPY 025_google-install.sh /etc/workstation-startup.d/025_google-install.sh
+COPY ws-setup.sh /usr/local/bin
 
 COPY customize_environment /tmp/customize_environment
 COPY settings.json /tmp/settings.json

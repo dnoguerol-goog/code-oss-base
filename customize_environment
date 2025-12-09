@@ -8,4 +8,13 @@ python -m venv ~/.venv
 source ~/.venv/bin/activate
 pip install google-adk
 
-echo "source ~/.venv/bin/activate" >> ~/.bashrc
+# Install UV
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+if ! grep -q "source ~/.venv/bin/activate" ~/.bashrc; then
+  echo "source ~/.venv/bin/activate" >> ~/.bashrc
+fi
+
+if ! grep -q "source ~/.local/bin/env" ~/.bashrc; then
+  echo "source ~/.local/bin/env" >> ~/.bashrc
+fi
