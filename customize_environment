@@ -1,20 +1,12 @@
 #!/bin/bash
 
-# Install Gemini CLI
-sudo npm install -g @google/gemini-cli
-
 # Install Google ADK
 python -m venv ~/.venv
 source ~/.venv/bin/activate
-pip install google-adk
-
-# Install UV
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
+pip install google-adk &> /tmp/adk.log
 if ! grep -q "source ~/.venv/bin/activate" ~/.bashrc; then
-  echo "source ~/.venv/bin/activate" >> ~/.bashrc
+  printf 'if [ -f ~/.venv/bin/activate ]; then\n  source ~/.venv/bin/activate\nfi\n' >> ~/.bashrc
 fi
 
-if ! grep -q "source ~/.local/bin/env" ~/.bashrc; then
-  echo "source ~/.local/bin/env" >> ~/.bashrc
-fi
+# Install Gemini CLI
+sudo npm install -g @google/gemini-cli &> /tmp/gemini.log
